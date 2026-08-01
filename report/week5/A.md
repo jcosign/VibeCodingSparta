@@ -78,10 +78,10 @@
 - 비고: 본 리포트는 개인정보 보호 및 실습 편의를 위해 고정된 난수(Seed)로 생성된 동일 구조의 샘플 데이터를 사용했습니다.
 
 
-===
-# 5주차 A과제 캡쳐1
+===================================
+# <5주차 A과제 캡쳐1>
 <img width="1124" height="499" alt="5주차 A과제 캡쳐 1" src="https://github.com/user-attachments/assets/040a2804-ab35-4d0c-91ed-2a5d0d9a8389" />
 
-# 5주차 A과제 캡쳐2
+# <5주차 A과제 캡쳐2>
 <img width="778" height="861" alt="5주차 A과제 캡쳐 2" src="https://github.com/user-attachments/assets/88d886b4-b393-4fba-bd49-6dc10b1ef0e1" />
 
