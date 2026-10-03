@@ -1,0 +1,9 @@
+# 9주차 — 매출 대시보드 + 리뷰 분류
+streamlit>=1.40
+pandas>=2.0
+numpy>=1.24
+# 선택: HuggingFace 분류(모델 다운로드). 없으면 규칙 기반으로 동작.
+# transformers>=4.40
+# 선택: AI_MODE=claude 또는 openai/openrouter 백엔드.
+# anthropic>=0.40
+# openai>=1.50
