@@ -1,0 +1,8 @@
+# 8주차 프로젝트 — 데이터 조회 API 서비스
+streamlit>=1.40
+fastapi>=0.110
+uvicorn[standard]>=0.27
+requests>=2.30
+tinydb>=4.8
+pandas>=2.0
+numpy>=1.24
