@@ -1,0 +1,7 @@
+# 7주차 프로젝트 — 미니 데이터 Q&A 에이전트
+streamlit>=1.40
+pandas>=2.0
+numpy>=1.24
+# 실제 LLM Tool Calling을 쓸 때만 필요(둘 중 하나). mock은 없어도 동작.
+anthropic>=0.40
+openai>=1.40
