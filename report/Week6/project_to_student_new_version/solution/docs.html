@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>판매 분석 리포트 사용 설명서</title>
+  <style>
+    :root { color-scheme: light; font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; color: #20302d; background: #f3f6f2; }
+    body { max-width: 920px; margin: 0 auto; padding: 36px 22px 64px; line-height: 1.7; }
+    header { padding: 24px 0; border-bottom: 3px solid #28745d; }
+    h1 { margin: 0; font-size: 2rem; }
+    h2 { margin-top: 34px; color: #205f4d; }
+    code, pre { font-family: Consolas, monospace; }
+    pre { overflow-x: auto; padding: 16px; background: #e5ece7; border-left: 4px solid #28745d; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { padding: 9px 12px; border: 1px solid #d6dfd9; text-align: left; }
+    th { background: #e5ece7; }
+    a { color: #176f5a; }
+    @media (max-width: 600px) { body { padding: 20px 14px 40px; } h1 { font-size: 1.6rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>판매 분석 리포트</h1>
+    <p>가상 판매 데이터 생성, 정리, 분석, 보고서 및 API 사용 안내</p>
+  </header>
+
+  <main>
+    <h2>설치</h2>
+    <p>Python 3.10 이상을 설치한 뒤 solution 폴더에서 필요한 패키지를 설치합니다.</p>
+    <pre>python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt</pre>
+
+    <h2>단계별 실행</h2>
+    <p>할인율은 0에서 0.30 사이의 비율로 저장합니다(예: 0.15는 15%). 총액은 할인 전 금액이며, 할인 금액과 할인 후 금액도 함께 계산합니다. 지역·카테고리 요약과 대시보드 및 PDF 차트에는 평균 할인율과 할인 후 매출이 반영됩니다.</p>
+    <table>
+      <thead><tr><th>단계</th><th>명령</th><th>결과</th></tr></thead>
+      <tbody>
+        <tr><td>1. 데이터 생성</td><td><code>python generate_data.py 10000</code></td><td>data/raw_sales.csv</td></tr>
+        <tr><td>2. 전처리 및 DB</td><td><code>python preprocess.py</code></td><td>data/sales.db, reports/*.csv</td></tr>
+        <tr><td>3. AI 분석</td><td><code>python analyze.py</code></td><td>data/analysis.json</td></tr>
+        <tr><td>4. 보고서 생성</td><td><code>python report.py</code></td><td>reports/*.csv, report.pdf</td></tr>
+        <tr><td>5. API 실행</td><td><code>uvicorn api:app --port 8600</code></td><td><a href="http://localhost:8600/docs">API 문서</a></td></tr>
+        <tr><td>6. 웹앱 실행</td><td><code>streamlit run app.py</code></td><td><a href="http://localhost:8501">Streamlit 대시보드</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>웹앱</h2>
+    <p>Streamlit 사이드바의 데이터 생성, 전처리, AI 분석, 보고서 만들기 버튼을 순서대로 누릅니다. 카테고리 필터에서 하나 이상을 선택하면 지표, 그래프, 표와 CSV 다운로드에 선택한 카테고리만 반영됩니다. AI 분석과 PDF는 전체 데이터 기준입니다.</p>
+
+    <h2>AI 모드</h2>
+    <p>기본값은 API 키가 필요 없는 mock 분석입니다. 로컬 CLI를 설치하고 로그인한 경우에만 실제 분석을 시도할 수 있습니다. CLI가 없거나 실패하면 mock으로 자동 전환됩니다.</p>
+    <pre># Windows PowerShell
+$env:AI_MODE = "claude"
+python analyze.py
+
+# 또는 Codex CLI
+$env:AI_MODE = "codex"
+python analyze.py</pre>
+
+    <h2>API와 예제</h2>
+    <p>API를 실행한 다음 브라우저의 <a href="http://localhost:8600/docs">/docs</a>에서 확인합니다.</p>
+    <ul>
+      <li><code>GET /summary</code>: 지역별·카테고리별 요약</li>
+      <li><code>GET /data?limit=5</code>: 정리된 판매 데이터 (최대 1,000건)</li>
+      <li><code>GET /top?category=전자제품&amp;limit=5</code>: 카테고리별 할인 후 매출 상위 주문 (최대 100건)</li>
+      <li><code>GET /analysis</code>: AI 또는 mock 분석 결과</li>
+      <li><code>GET /report.csv</code>: 정리 데이터 CSV 다운로드</li>
+    </ul>
+    <p>requests 예제: <code>python examples/api_client_example.py</code></p>
+
+    <h2>검증</h2>
+    <p><code>python test_solution.py</code>를 실행해 전체 단계를 확인합니다. 성공하면 <code>ALL PASS</code>가 출력됩니다.</p>
+    <p>DB가 없다는 오류가 나오면 데이터 생성과 전처리를 먼저 실행하세요. PDF 차트 라벨은 한글 폰트가 없어도 표시되도록 영문으로 출력됩니다.</p>
+  </main>
+</body>
+</html>
