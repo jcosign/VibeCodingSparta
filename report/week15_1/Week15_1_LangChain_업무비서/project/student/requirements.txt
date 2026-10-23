@@ -1,0 +1,11 @@
+# torch 는 env_set_up.sh 가 CPU/GPU를 감지해 따로 설치합니다(여기에는 넣지 않음).
+langchain-core>=0.3
+streamlit>=1.32
+transformers>=4.37  # Qwen2.5 계열 로드에 필요한 최소 버전(모델 카드 안내 기준)
+
+# 로컬 LLM이 실패했을 때의 클라우드 폴백(키가 있을 때만 사용)
+langchain-openai
+langchain-anthropic
+
+# 더 해보기: 메모리 영속화(INTEGRATION.md (C))
+# tinydb
