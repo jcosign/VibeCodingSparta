@@ -1,0 +1,14 @@
+# 웹 UI
+streamlit
+# 데이터·시각화
+pandas
+numpy
+pillow
+scikit-image
+# D1·D2: 로컬 AI 모델 (torch는 env_set_up.sh가 CPU 전용 빌드로 먼저 설치합니다)
+torch
+transformers
+diffusers
+accelerate
+# D3·D4: 시계열
+statsmodels
