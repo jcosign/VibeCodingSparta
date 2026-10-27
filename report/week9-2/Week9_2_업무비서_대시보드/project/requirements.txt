@@ -1,0 +1,6 @@
+streamlit>=1.40
+pandas>=2.0
+numpy>=1.24
+# 실제 AI를 켤 때만 (mock은 불필요)
+anthropic>=0.40   # AI_MODE=anthropic
+openai>=1.40      # AI_MODE=openai
