@@ -1,0 +1,13 @@
+# 웹 UI
+streamlit
+# 표 정리
+pandas
+numpy
+# 로컬 AI 모델 (torch는 env_set_up.sh가 CPU 전용 빌드로 먼저 설치합니다)
+torch
+# D2: 임베딩(바이 인코더) + 리랭커(크로스 인코더)
+sentence-transformers
+# D3: Whisper 음성 전사 (오디오 파일을 읽으려면 시스템에 ffmpeg가 따로 필요합니다)
+openai-whisper
+# D4: E2B 코드 실행 샌드박스 SDK (E2B_API_KEY가 없으면 로컬 대체 샌드박스 사용)
+e2b-code-interpreter
