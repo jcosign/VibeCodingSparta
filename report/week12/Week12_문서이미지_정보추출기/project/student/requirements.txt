@@ -1,0 +1,14 @@
+# 웹 UI
+streamlit
+# 표 정리 (D4: DataFrame·CSV)
+pandas
+# D3: PDF 텍스트 추출
+pypdf
+# D4: HTML 표·본문 파싱
+beautifulsoup4
+# 이미지 열기·샘플 영수증 그리기
+pillow
+# 로컬 OCR (파이썬 연결 라이브러리 - Tesseract 프로그램 자체는 시스템에 따로 설치해야 합니다)
+pytesseract
+# (선택) Gemini 호출 SDK - GEMINI_API_KEY가 없으면 쓰이지 않습니다
+google-genai
