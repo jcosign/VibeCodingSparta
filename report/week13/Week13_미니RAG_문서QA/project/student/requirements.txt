@@ -1,0 +1,8 @@
+# 웹 UI
+streamlit
+# 근거 표(DataFrame)
+pandas
+# D2: 실제 로컬 임베딩 모델(intfloat/multilingual-e5-small) 실행 - torch를 함께 설치합니다
+sentence-transformers
+# D3: VectorDB(로컬). 설치에 실패해도 rag.py가 순수 파이썬 검색으로 자동 대체합니다
+chromadb
